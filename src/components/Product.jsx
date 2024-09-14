@@ -54,31 +54,34 @@ const Product = () => {
         </>
     }
 
-if (status===STATUSES.ERROR) {
+    if (status === STATUSES.ERROR) {
 
-    return<>
-    <h2>Somthings went wrong</h2>
-    </>
-    
-}
+        return <>
+            <h2>Somthings went wrong</h2>
+        </>
+
+    }
 
 
     return (
 
         <>
-            <div className='productsWrapper'>
+            <div className='flex flex-wrap gap-5 justify-center'>
 
 
                 {
 
                     products.map((product) => (
 
-                        <div className='card' key={product.id}>
-                            <img src={product.images} alt='' />
-                            <h4>{product.title}</h4>
-                            <h5>${product.price}</h5>
-                            <button onClick={() => handleAdd(product)} className='btn'>Add to cart </button>
-
+                        <div className='w-[300px] h-[300px] p-2 shadow-xl flex flex-col ' key={product.id}>
+                            <div className='flex justify-center items-center'>
+                                <img className='w-[50%] ' src={product.images} alt='' />
+                            </div>
+                            <div className='h-[50%] mt-6 text-left pl-3 flex flex-col gap-3'>
+                                <h4 className='text-[18px] font-medium line-clamp-1'>{product.title}</h4>
+                                <h5 className='text-[16px] font-medium'>${product.price}</h5>
+                                <button className='bg-[#335A02] w-fit rounded-[10px] h-fit text-white p-2 pl-5 pr-5' onClick={() => handleAdd(product)} >Add to cart </button>
+                            </div>
                         </div>
                     ))
 
